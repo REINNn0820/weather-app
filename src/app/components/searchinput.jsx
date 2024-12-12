@@ -9,6 +9,45 @@ export function Searchinput() {
     </div>
   );
 }
-export function Circle(height, width) {
-  return <div className="w-{width} h-{height}  "></div>;
+export function Circle({ size, top, left }) {
+  return (
+    <div
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        top: `${top}px`,
+        left: `${left}px`,
+      }}
+      className="border rounded-full border-[#FFFFFFbf] absolute z-0"
+    ></div>
+  );
 }
+export function Square({size,top,left}){
+  return(
+    <div
+    style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      top: `${top}px`,
+      left: `${left}px`,
+    }}
+    className="bg-black z-20 rounded-[38px] absolute"
+    >
+    </div>
+  )
+}
+export function WhiteSquare({size,top,left}){
+  return(
+    <div
+    style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      top: `${top}px`,
+      left: `${left}px`,
+    }}
+    className="bg-[#ffffff] z-0 absolute"
+    >
+    </div>
+  )
+}
+
