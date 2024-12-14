@@ -1,3 +1,6 @@
+import React from "react";
+import { CiHome, CiLocationOn, CiHeart, CiUser } from "react-icons/ci";
+
 export function Searchinput({ search, onChangeText, onPressEnter }) {
   return (
     <div className="w-[520px] h-[80px] bg-[#ffffff] rounded-[48px] flex  items-center gap-[24px] z-30 ">
@@ -79,9 +82,6 @@ export function MidCircle({ size, top, left }) {
     ></div>
   );
 }
-
-import React from "react";
-import { CiHome, CiLocationOn, CiHeart, CiUser } from "react-icons/ci";
 
 export const Icons = ({ value }) => {
   const dayIcons = [
