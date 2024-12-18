@@ -148,7 +148,7 @@ export function Card({ value, city, weather, forecastDate }) {
         setDayStatus("/Cloud.png");
       }
     } else {
-      if (condition.includes("Clear")) {
+      if (condition.includes("Night || clear")) {
         setNightStatus("/Moon.png");
       } else if (condition.includes("Overcast")) {
         setNightStatus("/Cloudy.png");
@@ -158,7 +158,7 @@ export function Card({ value, city, weather, forecastDate }) {
         setNightStatus("/Rainy.png");
       } else if (condition.includes("thunder")) {
         setNightStatus("/Thunderstorm.png");
-      } else if (condition.includes("wind")) {
+      } else if (condition.includes("wind || fog")) {
         setNightStatus("/Windy.png");
       } else if (condition.includes("Cloudy")) {
         setNightStatus("/Cloudy.png");
