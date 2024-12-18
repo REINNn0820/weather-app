@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import {
   Circle,
-  Searchinput,
+  SearchInput,
   Square,
   WhiteSquare,
   MidCircle,
@@ -29,10 +29,13 @@ export default function Home() {
     setSearch(e.target.value);
   };
 
-  const onPressEnter = (e) => {
-    if (e.code === "Enter" && search.trim()) {
-      setCity(search);
-    }
+  const handlePressEnter = () => {
+    setCity(search.trim());
+  };
+
+  const onPressClick = (filteredCitiesName) => {
+    setCity(filteredCitiesName);
+    setSearch("");
   };
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export default function Home() {
         .then((data) => {
           const forecastDay = data.forecast?.forecastday[0];
 
-          const date = new Date(forecastDay.date);
+          const date = new Date(forecastDay?.date);
           const formattedDate = date.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -76,10 +79,11 @@ export default function Home() {
           weather={dayweather}
           forecastDate={forecastDate}
         />
-        <Searchinput
+        <SearchInput
           search={search}
           onChangeText={onChangeText}
-          onPressEnter={onPressEnter}
+          onPressEnter={handlePressEnter}
+          onPressClick={onPressClick}
         />
       </div>
 
@@ -183,23 +187,26 @@ export function Card({ value, city, weather, forecastDate }) {
         <div className="flex justify-center">
           <div className="w-[290px] mt-[64px] ml-[10px]">
             <p className="text-md">{forecastDate || "Date Unavailable"}</p>
-            <h2 className="text-5xl font-bold">{city || "Unknown"}</h2>
+            <h2 className="text-5xl font-bold h-36">{city || "Unknown"}</h2>
+          </div>
+          <div>
+            <img src="localization_icon.png" className="mt-[70px]" />
           </div>
         </div>
-        <div className="flex justify-center items-center mt-[30px]">
+        <div className="flex justify-center items-center mt-[10px]">
           <img
             className="h-[300px] w-[300px]"
             src={weatherStatus}
             alt={value}
           />
         </div>
-        <div className="flex justify-center items-center mr-32 ">
+        <div className="flex justify-center items-center mr-32 -mt-2">
           <p className={temperatureStyle}>{number || "--"}°</p>
         </div>
-        <div className="mt-[30px] ml-[60px]">
+        <div className="ml-[60px]">
           <p className={conditionStyle}>{condition || "No Data"}</p>
         </div>
-        <div className="flex justify-center items-center mt-[80px] gap-20">
+        <div className="flex justify-center items-center mt-[50px] gap-20">
           <Icons value={value} />
         </div>
       </div>
