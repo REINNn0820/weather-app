@@ -158,7 +158,7 @@ export function Card({ value, city, weather, forecastDate }) {
         setNightStatus("/Rainy.png");
       } else if (condition.includes("thunder")) {
         setNightStatus("/Thunderstorm.png");
-      } else if (condition.includes("wind || fog")) {
+      } else if (condition.includes("wind")) {
         setNightStatus("/Windy.png");
       } else if (condition.includes("Cloudy")) {
         setNightStatus("/Cloudy.png");
