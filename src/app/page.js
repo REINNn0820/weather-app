@@ -124,7 +124,7 @@ export default function Home() {
 export function Card({ value, city, weather, forecastDate }) {
   const isDay = value === "day";
   const [dayStatus, setDayStatus] = useState("/Sun.png");
-  const [nightStatus, setNightStatus] = useState("/Moon.png");
+  const [nightStatus, setNightStatus] = useState("/moon.png");
   const weatherStatus = isDay ? dayStatus : nightStatus;
   const { number, condition } = weather;
 
